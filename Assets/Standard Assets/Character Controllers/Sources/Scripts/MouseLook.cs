@@ -52,8 +52,15 @@ public class MouseLook : MonoBehaviour {
 			
 			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 		}
+		if(Input.GetButtonDown("Fire2")){
+		    Ray look = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+		    RaycastHit hit;
+		    if(Physics.Raycast(look, out hit) && hit.transform.gameObject.tag == "Door" ){
+				hit.transform.gameObject.SendMessage("Flip");
+		    }
+		}
 	}
-	
+
 	void Start ()
 	{
 		// Make the rigid body not change rotation

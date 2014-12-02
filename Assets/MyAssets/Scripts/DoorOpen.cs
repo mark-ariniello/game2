@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DoorOpen : MonoBehaviour {
-	
+
 	private bool open;
 	public GameObject door;
 	private Vector3 a;

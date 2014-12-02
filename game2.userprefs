@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\svn\Game1\Assets\MyAssets\scenecontrol.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MyAssets\Scripts\DoorOpen.cs">
     <Files>
-      <File FileName="..\svn\Game1\Assets\MyAssets\scenecontrol.cs" Line="51" Column="103" />
+      <File FileName="Assets\MyAssets\Scripts\DoorOpen.cs" Line="45" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
