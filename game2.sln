@@ -7,6 +7,10 @@ Project("{99FBC31E-29A4-1F67-81AB-344783D1FED2}") = "game2", "Assembly-CSharp.cs
 EndProject
 Project("{99FBC31E-29A4-1F67-81AB-344783D1FED2}") = "game2", "Assembly-UnityScript-firstpass.unityproj", "{0A963309-3CBB-2EDD-DA7C-C234EB6F5655}"
 EndProject
+Project("{99FBC31E-29A4-1F67-81AB-344783D1FED2}") = "game2", "Assembly-UnityScript.unityproj", "{08BE07D0-63C8-CE62-FDBF-5BEB1D0A9700}"
+EndProject
+Project("{99FBC31E-29A4-1F67-81AB-344783D1FED2}") = "game2", "Assembly-UnityScript-Editor.unityproj", "{DF816F71-2418-4DBE-31E4-DAAD83ECA700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +29,19 @@ Global
 		{0A963309-3CBB-2EDD-DA7C-C234EB6F5655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A963309-3CBB-2EDD-DA7C-C234EB6F5655}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A963309-3CBB-2EDD-DA7C-C234EB6F5655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08BE07D0-63C8-CE62-FDBF-5BEB1D0A9700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BE07D0-63C8-CE62-FDBF-5BEB1D0A9700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BE07D0-63C8-CE62-FDBF-5BEB1D0A9700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BE07D0-63C8-CE62-FDBF-5BEB1D0A9700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF816F71-2418-4DBE-31E4-DAAD83ECA700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF816F71-2418-4DBE-31E4-DAAD83ECA700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF816F71-2418-4DBE-31E4-DAAD83ECA700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF816F71-2418-4DBE-31E4-DAAD83ECA700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																		GlobalSection(MonoDevelopProperties) = preSolution
+																						GlobalSection(MonoDevelopProperties) = preSolution
 =======
 	GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/master
