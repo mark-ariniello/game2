@@ -27,25 +27,25 @@ public class RandomPlace : MonoBehaviour {
 		for (int i = 0; i < 7; i++){
 			Vector3 pos = new Vector3(0, 0, 0);
 			if (i == 0){
-				pos = new Vector3(-40, 0, -40);
+				pos = new Vector3(-40, 20, -40);
 			}
 			else if (i == 1){
-				pos = new Vector3(0, 0, -40);
+				pos = new Vector3(0, 20, -40);
 			}
 			else if (i == 2){
-				pos = new Vector3(40, 0, -40);
+				pos = new Vector3(40, 20, -40);
 			}
 			else if (i == 3){
-				pos = new Vector3(-40, 0, 40);
+				pos = new Vector3(-40, 20, 40);
 			}
 			else if (i == 4){
-				pos = new Vector3(0, 0, 40);
+				pos = new Vector3(0, 20, 40);
 			}
 			else if (i == 5){
-				pos = new Vector3(40, 0, 40);
+				pos = new Vector3(40, 20, 40);
 			}
 			else if (i == 6){
-				pos = new Vector3(-40, 0, 0);
+				pos = new Vector3(-40, 20, 0);
 			}
 			else{
 				Debug.Log("Error in RandomPlace for loop");
