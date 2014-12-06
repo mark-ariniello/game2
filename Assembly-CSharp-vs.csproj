@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Monster2pack\Scripts\Ventilation.cs" />
      <Compile Include="Assets\MyAssets\Scripts\DoorOpen.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\elevatortop.cs" />
      <Compile Include="Assets\RandomPlace.cs" />
      <None Include="Assets\Monster2pack\Shaders\OlesWaterSurfaceShader.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
