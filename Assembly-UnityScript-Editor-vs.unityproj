@@ -49,6 +49,7 @@
      <Compile Include="Assets\Monster2pack\Editor\RenderCubemapWizard.js" />
      <None Include="Assets\Monster2pack\Shaders\OlesWaterSurfaceShader.shader" />
      <None Include="Assets\Elementals\!Readme.txt" />
+     <None Include="Assets\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Chris Audette/Documents/Lost Civ/game2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

@@ -58,6 +58,9 @@ public class MouseLook : MonoBehaviour {
 		    if(Physics.SphereCast(look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Door" ){
 				hit.transform.gameObject.SendMessage("Flip");
 		    }
+			else if(Physics.SphereCast (look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Shovel"){
+				hit.transform.gameObject.SendMessage("shovelGet");
+			}
 			else
 				Debug.Log("Ray hit nothing.");
 		}

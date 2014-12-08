@@ -48,14 +48,22 @@
   <ItemGroup>
      <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
+     <Compile Include="Assets\LibNoise\GradientNoiseBasis.cs" />
+     <Compile Include="Assets\LibNoise\IModule.cs" />
+     <Compile Include="Assets\LibNoise\Math.cs" />
+     <Compile Include="Assets\LibNoise\Perlin.cs" />
      <Compile Include="Assets\Monster2pack\Scripts\Ventilation.cs" />
+     <Compile Include="Assets\MoreCharacterStuff.cs" />
      <Compile Include="Assets\MyAssets\Scripts\DoorOpen.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Elevator.cs" />
      <Compile Include="Assets\MyAssets\Scripts\LightningBolt.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Perlin.cs" />
      <Compile Include="Assets\RandomPlace.cs" />
+     <Compile Include="Assets\ShovelGet.cs" />
+     <Compile Include="Assets\Static.cs" />
      <None Include="Assets\Monster2pack\Shaders\OlesWaterSurfaceShader.shader" />
      <None Include="Assets\Elementals\!Readme.txt" />
+     <None Include="Assets\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Chris Audette/Documents/Lost Civ/game2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
