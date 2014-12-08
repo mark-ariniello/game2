@@ -37,8 +37,8 @@ public class Elevator : MonoBehaviour {
 		if ((d [0] == 0f) && (b [0] == 0f) && close) {
 			Application.LoadLevel(Application.loadedLevel + 1);	
 		}
-		Debug.Log (a);
-		Debug.Log (c);
+		//Debug.Log (a);
+		//Debug.Log (c);
 		topDoor.transform.Translate (b * Time.deltaTime);
 		bottomDoor.transform.Translate (d * Time.deltaTime);
 	}

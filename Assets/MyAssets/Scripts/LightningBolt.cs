@@ -28,7 +28,7 @@ public class LightningBolt : MonoBehaviour
 
 		ps.Emit(zigs);
 
-		particles = new ParticleSystem.Particle[1000];
+		particles = new ParticleSystem.Particle[100];
 		particleCount = ps.GetParticles(particles);
 	}
 	
@@ -47,14 +47,16 @@ public class LightningBolt : MonoBehaviour
 			Vector3 offset = new Vector3(noise.Noise(timex + position.x, timex + position.y, timex + position.z),
 										noise.Noise(timey + position.x, timey + position.y, timey + position.z),
 										noise.Noise(timez + position.x, timez + position.y, timez + position.z));
+			//Debug.Log("offset is: " + offset);
+			//Debug.Log("position is: " + position);
 			position += (offset * scale * ((float)i * oneOverZigs));
 
-			Debug.Log(position);
+			//Debug.Log(" position after offset is: " + position);
 			particles[i].position = position;
 			particles[i].color = Color.white;
-			particles[i].startLifetime = 10f;
+			particles[i].startLifetime = 1f;
 		}
-		
+
 		ps.SetParticles (particles, particleCount);
 		
 		if (ps.particleCount >= 2)
