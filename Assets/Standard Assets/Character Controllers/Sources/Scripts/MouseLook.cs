@@ -55,9 +55,11 @@ public class MouseLook : MonoBehaviour {
 		if(Input.GetButtonDown("Fire2")){
 		    Ray look = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 		    RaycastHit hit;
-		    if(Physics.Raycast(look, out hit) && hit.transform.gameObject.tag == "Door" ){
+		    if(Physics.SphereCast(look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Door" ){
 				hit.transform.gameObject.SendMessage("Flip");
 		    }
+			else
+				Debug.Log("Ray hit nothing.");
 		}
 	}
 

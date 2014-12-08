@@ -3,42 +3,35 @@ using System.Collections;
 
 public class DoorOpen : MonoBehaviour {
 
-	private bool open;
-	public GameObject door;
-	private Vector3 a;
-	private Vector3 b;
-
+	private bool open = false;
+	private int downtick = 0;
+	private Vector3 startPos;
+	public float dir = 1.9f;
 	// Use this for initialization
 	void Start () {
-		open = false;
+		startPos = transform.localPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		b = door.transform.localPosition;
-		if (b [0] <= -2f && !open) {
-			a [0] = 0f;
-			open = true;
-			//Debug.Log("door is open");
+		if(open){
+			Vector3 hold = startPos;
+			hold.x = (hold.x - dir);
+			transform.localPosition = Vector3.MoveTowards(transform.localPosition, hold, Time.deltaTime);
 		}
-		if (b [0] >= 0f && open) {
-			a [0] = 0f;
-			open = false;
-			//Debug.Log("door is closed");
+		if(!open){
+			transform.localPosition = Vector3.MoveTowards(transform.localPosition, startPos, Time.deltaTime);
 		}
-		Debug.Log(open);
-		door.transform.Translate(a * Time.deltaTime);
+		if(downtick > 0){
+			downtick = downtick-1;
+		}
 	}
-
-	void OnTriggerStay (Collider other) {
-		//Debug.Log ("entered the trigger area");
-		if (!open && Input.GetKeyUp ("e")) {
-			//Debug.Log("made activated the door");
-			a [0] = -1f;
-		}
-		if (open && Input.GetKeyUp ("e")) {
-			//Debug.Log("closed the door");
-			a [0] = 1f;
+	
+	void Flip (){
+		if(downtick == 0){
+			open = !open;
+			Debug.Log ("Detected Door Open/Close Command.");
+			downtick = 3;
 		}
 	}
 }
