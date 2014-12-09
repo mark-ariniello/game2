@@ -48,8 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Monster2pack\Scripts\UVScroller.js" />
      <None Include="Assets\Monster2pack\Shaders\OlesWaterSurfaceShader.shader" />
-     <None Include="Assets\Elementals\!Readme.txt" />
-     <None Include="Assets\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
+     <None Include="Assets\3dmodels\Elementals\!Readme.txt" />
+     <None Include="Assets\3dmodels\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
