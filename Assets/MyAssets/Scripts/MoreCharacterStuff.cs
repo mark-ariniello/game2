@@ -25,10 +25,28 @@ public class MoreCharacterStuff : MonoBehaviour {
 	public Texture2D H1;
 	public Texture2D H0;
 	private Rect hrect;
+
+	public Texture2D B5;
+	public Texture2D B4;
+	public Texture2D B3;
+	public Texture2D B2;
+	public Texture2D B1;
+	public Texture2D B0;
+	private Rect brect;
+
+	private int fBattery = 2000;
+	private int fb, f5, f4, f3, f2, f1;
 	// Use this for initialization
 	void Start () {
 		health = 6;
 		hrect = new Rect (0f, 0f, 50f, 50f);
+		brect = new Rect (5f, 55f, 50f, 25f);
+		fb = fBattery;
+		f5 = (fBattery*4)/5;
+		f4 = (fBattery*3)/5;
+		f3 = (fBattery*2)/5;
+		f2 = fBattery/5;
+		f1 = 0;
 	}
 	
 	// Update is called once per frame
@@ -72,22 +90,14 @@ public class MoreCharacterStuff : MonoBehaviour {
 			Time.timeScale = 1;
 			isPause = false;
 		}
-		else if (Input.GetButton ("Fire1") && equipped == 1){
-
-		}
-		else if (Input.GetButton ("Fire1") && equipped == 2){
-
-		}
-		else if (Input.GetButton ("Flashlight") && inputStop == 0 && !lightOn){
+		else if (Input.GetButtonDown ("Flashlight") && inputStop == 0 && !lightOn && fb > f1){
 			held = (GameObject)Instantiate(flashlight, transform.position, transform.rotation);
 			held.transform.parent = gameObject.transform;
 			lightOn = true;
-			inputStop = 5;
 		}
-		else if (Input.GetButton ("Flashlight") && inputStop == 0 && lightOn){
+		else if (Input.GetButtonDown ("Flashlight") && inputStop == 0 && lightOn){
 			Destroy(held);
 			lightOn = false;
-			inputStop = 5;
 		}
 		if(inputStop > 0){
 			inputStop = inputStop - 1;
@@ -95,6 +105,37 @@ public class MoreCharacterStuff : MonoBehaviour {
 		if (health == 0 && !dc){
 			Death ();
 			dc = true;
+		}
+		if (lightOn && fb <= f1){
+			lightOn = false;
+			Destroy (held);
+		}
+	}
+
+	void FixedUpdate(){
+		if (lightOn && fb > f1){
+			fb--;
+		}
+		if (Input.GetButton ("Fire1") && equipped == 1){
+			if(!weapon.animation.IsPlaying("Swing")){
+				weapon.animation.Play("Swing");
+				Ray swing = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+				RaycastHit hit;
+				if ((Physics.SphereCast(swing, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Enemy") || (Physics.Raycast(swing, out hit, 10f) && hit.transform.gameObject.tag == "Enemy")){
+					hit.transform.gameObject.SendMessage("Damage", 1);
+				}
+			}
+		}
+		if (Input.GetButton ("Fire1") && equipped == 2){
+			Animation hold = weapon.GetComponentsInChildren<Animation>()[0];
+			if(!hold.IsPlaying("Fire")){
+				hold.Play ("Fire");
+				Ray fire = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+				RaycastHit hit;
+				if (Physics.Raycast(fire, out hit) && hit.transform.gameObject.tag == "Enemy"){
+					hit.transform.gameObject.SendMessage("Damage", 2);
+				}
+			}
 		}
 	}
 
@@ -114,6 +155,10 @@ public class MoreCharacterStuff : MonoBehaviour {
 		Debug.Log ("Healed " + hel);
 	}
 
+	void batteryGet(){
+		fb = fBattery;
+	}
+
 	void shovelGet (){
 		hasShovel = true;
 		Debug.Log("Got shovel.");
@@ -125,10 +170,12 @@ public class MoreCharacterStuff : MonoBehaviour {
 	}
 
 	void Death(){
+		Application.LoadLevel("DeathScene");
 	}
 
 	void OnGUI(){
 		if (isPause){
+
 		}
 		if (health == 6){
 			GUI.Label(hrect, H6);
@@ -150,6 +197,24 @@ public class MoreCharacterStuff : MonoBehaviour {
 		}
 		if (health == 0){
 			GUI.Label(hrect, H0);
+		}
+		if (fb > f5){
+			GUI.Label(brect, B5);
+		}
+		if (fb > f4 && fb <= f5){
+			GUI.Label(brect, B4);
+		}
+		if (fb > f3 && fb <= f4){
+			GUI.Label(brect, B3);
+		}
+		if (fb > f2 && fb <= f3){
+			GUI.Label(brect, B2);
+		}
+		if (fb > f1 && fb <= f2){
+			GUI.Label(brect, B1);
+		}
+		if (fb == f1){
+			GUI.Label(brect, B0);
 		}
 	}
 }

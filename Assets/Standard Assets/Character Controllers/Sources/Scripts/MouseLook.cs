@@ -55,10 +55,10 @@ public class MouseLook : MonoBehaviour {
 		if(Input.GetButtonDown("Fire2")){
 		    Ray look = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 		    RaycastHit hit;
-		    if(Physics.SphereCast(look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Door" ){
+		    if((Physics.SphereCast(look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Door") || (Physics.Raycast(look, out hit, 10f) && hit.transform.gameObject.tag == "Door")){
 				hit.transform.gameObject.SendMessage("Flip");
 		    }
-			else if(Physics.SphereCast (look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Shovel"){
+			else if((Physics.SphereCast (look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Shovel") || (Physics.Raycast(look, out hit, 10f) && hit.transform.gameObject.tag == "Shovel")){
 				hit.transform.gameObject.SendMessage("shovelGet");
 			}
 			else
