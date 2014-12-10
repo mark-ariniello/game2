@@ -39,37 +39,38 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity4.6/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity4.6/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\3dmodels\Clock\Scripts\Clock.cs" />
      <Compile Include="Assets\3dmodels\Elementals\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\3dmodels\Elementals\Scripts\TestParticles.cs" />
+     <Compile Include="Assets\DamageArea.cs" />
      <Compile Include="Assets\LibNoise\GradientNoiseBasis.cs" />
      <Compile Include="Assets\LibNoise\IModule.cs" />
      <Compile Include="Assets\LibNoise\Math.cs" />
      <Compile Include="Assets\LibNoise\Perlin.cs" />
      <Compile Include="Assets\Monster2pack\Scripts\Ventilation.cs" />
-     <Compile Include="Assets\MoreCharacterStuff.cs" />
      <Compile Include="Assets\MyAssets\Scripts\DoorOpen.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Elevator.cs" />
      <Compile Include="Assets\MyAssets\Scripts\LightningBolt.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\MoreCharacterStuff.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Perlin.cs" />
-     <Compile Include="Assets\RandomPlace.cs" />
-     <Compile Include="Assets\ShovelGet.cs" />
-     <Compile Include="Assets\Static.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\RandomPlace.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\ShovelGet.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\Static.cs" />
      <None Include="Assets\Monster2pack\Shaders\OlesWaterSurfaceShader.shader" />
      <None Include="Assets\3dmodels\Elementals\!Readme.txt" />
      <None Include="Assets\3dmodels\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Mark/Documents/gamedev/game2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Chris Audette/Documents/Lost Civ/game2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity4.6/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MyAssets\Scripts\LightningBolt.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MyAssets\Scripts\MoreCharacterStuff.cs">
     <Files>
-      <File FileName="Assets\MyAssets\Scripts\LightningBolt.cs" Line="25" Column="3" />
+      <File FileName="Assets\MyAssets\Scripts\MoreCharacterStuff.cs" Line="87" Column="14" />
+      <File FileName="Assets\MyAssets\Scripts\MoreCharacterStuff.cs" Line="122" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
