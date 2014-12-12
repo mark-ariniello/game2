@@ -61,6 +61,9 @@ public class MouseLook : MonoBehaviour {
 			else if((Physics.SphereCast (look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Shovel") || (Physics.Raycast(look, out hit, 10f) && hit.transform.gameObject.tag == "Shovel")){
 				hit.transform.gameObject.SendMessage("shovelGet");
 			}
+			else if((Physics.SphereCast (look, 1f, out hit, 10f) && hit.transform.gameObject.tag == "Pickup") || (Physics.Raycast(look, out hit, 10f) && hit.transform.gameObject.tag == "Pickup")){
+				hit.transform.gameObject.SendMessage("Pickup");
+			}
 			else
 				Debug.Log("Ray hit nothing.");
 		}

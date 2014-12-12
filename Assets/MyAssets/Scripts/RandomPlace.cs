@@ -51,6 +51,20 @@ public class RandomPlace : MonoBehaviour {
 				Debug.Log("Error in RandomPlace for loop");
 			}
 			float hold = Random.Range(1, 15);
+			float hold2 = Random.Range (1, 5);
+			if (hold2 < 2){
+			    qi.SetLookRotation(Vector3.forward, Vector3.up);
+			}
+			else if (hold2 >= 2 && hold2 < 3){
+			    qi.SetLookRotation(Vector3.right, Vector3.up);
+			}
+			else if (hold2 >= 3 && hold2 < 4){
+			    qi.SetLookRotation(-Vector3.right, Vector3.up);
+			}
+			else{
+			    qi.SetLookRotation(-Vector3.forward, Vector3.up);
+			}
+			
 			if (hold < 2 && !flip[0]){
 				Instantiate(p1, pos, qi);
 				flip[0] = true;

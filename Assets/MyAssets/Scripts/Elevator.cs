@@ -35,6 +35,8 @@ public class Elevator : MonoBehaviour {
 			d [0] = 0f; 
 		}
 		if ((d [0] == 0f) && (b [0] == 0f) && close) {
+		    GameObject hold = GameObject.Find("TheDude");
+		    PlayerPrefs.SetInt("Ammo", hold.GetComponent<MoreCharacterStuff>().ammo);
 			Application.LoadLevel(Application.loadedLevel + 1);	
 		}
 		//Debug.Log (a);
@@ -44,6 +46,8 @@ public class Elevator : MonoBehaviour {
 	}
 
 	void OnTriggerStay (Collider other){
-		close = true;
+	    if(other.gameObject.tag == "Player"){
+		    close = true;
+		}
 	}
 }

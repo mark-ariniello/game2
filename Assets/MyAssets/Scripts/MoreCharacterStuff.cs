@@ -33,20 +33,35 @@ public class MoreCharacterStuff : MonoBehaviour {
 	public Texture2D B1;
 	public Texture2D B0;
 	private Rect brect;
+	
+	public int ammo = 0;
 
-	private int fBattery = 2000;
+	private int fBattery = 10000;
 	private int fb, f5, f4, f3, f2, f1;
+	
+	private int controlInstruct = 0;
+	private int shovInstruct = 0;
+	private int gunInstruct = 0;
+	private Rect irect;
+	
+	public bool newplayer = false;
+	private int mercy = 0;
 	// Use this for initialization
 	void Start () {
 		health = 6;
 		hrect = new Rect (0f, 0f, 50f, 50f);
 		brect = new Rect (5f, 55f, 50f, 25f);
+		irect = new Rect (180f, 0f, 200f, 100f);
 		fb = fBattery;
 		f5 = (fBattery*4)/5;
 		f4 = (fBattery*3)/5;
 		f3 = (fBattery*2)/5;
 		f2 = fBattery/5;
 		f1 = 0;
+		if(newplayer){
+		  controlInstruct = 300;
+		}
+		ammo = PlayerPrefs.GetInt("Ammo");
 	}
 	
 	// Update is called once per frame
@@ -110,6 +125,9 @@ public class MoreCharacterStuff : MonoBehaviour {
 			lightOn = false;
 			Destroy (held);
 		}
+		if (mercy != 0){
+		    mercy--;
+		}
 	}
 
 	void FixedUpdate(){
@@ -128,23 +146,39 @@ public class MoreCharacterStuff : MonoBehaviour {
 		}
 		if (Input.GetButton ("Fire1") && equipped == 2){
 			Animation hold = weapon.GetComponentsInChildren<Animation>()[0];
-			if(!hold.IsPlaying("Fire")){
+			if(!hold.IsPlaying("Fire") && ammo != 0){
 				hold.Play ("Fire");
 				Ray fire = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 				RaycastHit hit;
 				if (Physics.Raycast(fire, out hit) && hit.transform.gameObject.tag == "Enemy"){
 					hit.transform.gameObject.SendMessage("Damage", 2);
 				}
+				ammo--;
 			}
+		}
+		if (Input.GetButton("Fire1") && equipped == 2 && ammo == 0){
+		    Debug.Log("Out of Ammo!");
+		}
+		if (controlInstruct != 0){
+		    controlInstruct--;
+		}
+		if (shovInstruct != 0){
+		    shovInstruct--;
+		}
+		if (gunInstruct != 0){
+		    gunInstruct--;
 		}
 	}
 
 	void Damage (int dam){
-		health = health - dam;
-		if (health < 0){
-			health = 0;
+	    if(mercy == 0){
+		    health = health - dam;
+		    if (health < 0){
+			    health = 0;
+		    }
+		    Debug.Log ("Took damage " + dam);
+			mercy = 30;
 		}
-		Debug.Log ("Took damage " + dam);
 	}
 
 	void Heal (int hel){
@@ -157,16 +191,24 @@ public class MoreCharacterStuff : MonoBehaviour {
 
 	void batteryGet(){
 		fb = fBattery;
+		Debug.Log("Got battery pack.");
 	}
 
 	void shovelGet (){
 		hasShovel = true;
 		Debug.Log("Got shovel.");
+		shovInstruct = 300;
 	}
 
 	void gunGet(){
 		hasGun = true;
 		Debug.Log ("Got gun.");
+		gunInstruct = 300;
+	}
+	
+	void ammoGet(int a){
+	    ammo = ammo + a;
+		Debug.Log ("Got ammo: " + a);
 	}
 
 	void Death(){
@@ -215,6 +257,18 @@ public class MoreCharacterStuff : MonoBehaviour {
 		}
 		if (fb == f1){
 			GUI.Label(brect, B0);
+		}
+		if (hasGun){
+		    GUI.Label(new Rect(0f, 180f, 50, 50), "Ammo: " + ammo);
+		}
+		if (controlInstruct != 0){
+		    GUI.Label(irect, "Use wasd to move; press f to toggle your flashlight.");
+		}
+		if (shovInstruct != 0){
+		    GUI.Label(irect, "Press 1 to equip your shovel, left click to swing.");
+		}
+		if (gunInstruct != 0){
+		    GUI.Label(irect, "Press 2 to equip your gun, left click to fire.");
 		}
 	}
 }
